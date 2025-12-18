@@ -44,7 +44,7 @@ class Server:
         def health() -> str:
             """Return basic health probe result."""
             return "Presidio Anonymizer service is up"
-        
+
         @self.app.route("/genz-preview", methods=["GET"])
         def genz_preview():
             return jsonify(
@@ -66,7 +66,9 @@ class Server:
             )
 
             genz_ops_json = {r.entity_type: {"type": "genz"} for r in analyzer_results}
-            anonymizers_config = AppEntitiesConvertor.operators_config_from_json(genz_ops_json)
+            anonymizers_config = AppEntitiesConvertor.operators_config_from_json(
+                genz_ops_json
+            )
 
             if AppEntitiesConvertor.check_custom_operator(anonymizers_config):
                 raise BadRequest("Custom type anonymizer is not supported")
@@ -124,9 +126,10 @@ class Server:
             return jsonify(error="Internal server error"), 500
 
 
-def create_app(): # noqa
+def create_app():  # noqa
     server = Server()
     return server.app
+
 
 if __name__ == "__main__":
     app = create_app()

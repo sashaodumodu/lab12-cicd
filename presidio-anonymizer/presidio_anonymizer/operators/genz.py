@@ -12,35 +12,37 @@ class GenZ(Operator):
     # Mapping from entity type → list of slang terms
     GENZ_MAP: Dict[str, List[str]] = {
         "PERSON": [
-            "bestie", "pookie", "queen", "GOAT", "baddie", "mc",
-            "slay", "based", "gagged", "snatched"
+            "bestie",
+            "pookie",
+            "queen",
+            "GOAT",
+            "baddie",
+            "mc",
+            "slay",
+            "based",
+            "gagged",
+            "snatched",
         ],
-        "EMAIL_ADDRESS": [
-            "brainrot", "touch grass", "iykyk", "no cap", "bet"
-        ],
-        "PHONE_NUMBER": [
-            "fr fr", "bruh", "oop—", "big yikes", "vibe check"
-        ],
-        "CREDIT_CARD": [
-            "this ain't it", "sheesh", "mid", "L", "bro???"
-        ],
-        "IP_ADDRESS": [
-            "skibidi", "out of pocket", "sus", "rizzless", "delulu"
-        ],
-        "DATE_TIME": [
-            "it's giving… time?", "Gucci hour", "dead 💀", "locked in"
-        ],
-        "URL": [
-            "slaps", "fire", "bussin'", "gas", "drip"
-        ],
-        "LOCATION": [
-            "Ohio", "vibe zone", "the lore", "the timeline", "the trenches"
-        ],
+        "EMAIL_ADDRESS": ["brainrot", "touch grass", "iykyk", "no cap", "bet"],
+        "PHONE_NUMBER": ["fr fr", "bruh", "oop—", "big yikes", "vibe check"],
+        "CREDIT_CARD": ["this ain't it", "sheesh", "mid", "L", "bro???"],
+        "IP_ADDRESS": ["skibidi", "out of pocket", "sus", "rizzless", "delulu"],
+        "DATE_TIME": ["it's giving… time?", "Gucci hour", "dead 💀", "locked in"],
+        "URL": ["slaps", "fire", "bussin'", "gas", "drip"],
+        "LOCATION": ["Ohio", "vibe zone", "the lore", "the timeline", "the trenches"],
         # fallback for other PII types
         "DEFAULT": [
-            "slay", "mid", "big yikes", "skibidi", "based",
-            "gigachad", "oop", "touch grass", "sus", "W"
-        ]
+            "slay",
+            "mid",
+            "big yikes",
+            "skibidi",
+            "based",
+            "gigachad",
+            "oop",
+            "touch grass",
+            "sus",
+            "W",
+        ],
     }
 
     ENTITY_TYPE = "entity_type"
