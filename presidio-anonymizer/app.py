@@ -44,6 +44,16 @@ class Server:
         def health() -> str:
             """Return basic health probe result."""
             return "Presidio Anonymizer service is up"
+        
+        @self.app.route("/genz-preview", methods=["GET"])
+        def genz_preview():
+            return jsonify(
+                {
+                    "example": "Call Emily at 577-988-1234",
+                    "example output": "Call GOAT at vibe check",
+                    "description": "Example output of the genz anonymizer.",
+                }
+            )
 
         @self.app.route("/anonymize", methods=["POST"])
         def anonymize() -> Response:
@@ -111,6 +121,7 @@ class Server:
         def server_error(e):
             self.logger.error(f"A fatal error occurred during execution: {e}")
             return jsonify(error="Internal server error"), 500
+
 
 def create_app(): # noqa
     server = Server()
